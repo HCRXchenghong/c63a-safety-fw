@@ -1,0 +1,2 @@
+PROJECT_TOOLCHAIN_BIN := $(abspath ../toolchain/bin)
+export PATH := $(PROJECT_TOOLCHAIN_BIN);$(PATH)

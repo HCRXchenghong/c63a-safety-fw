@@ -1,0 +1,25 @@
+.metadata/
+
+# STM32CubeIDE build outputs
+STM32CubeIDE/Debug/
+STM32CubeIDE/Release/
+
+# Keil / MDK build outputs
+MDK-ARM/RTE/
+MDK-ARM/Objects/
+MDK-ARM/Listings/
+
+# Root-level firmware artifacts
+WHEELTEC.bin
+WHEELTEC.hex
+WHEELTEC.elf
+WHEELTEC.list
+WHEELTEC.map
+default.size.stdout
+objects.list
+
+# Generic compiler outputs
+*.o
+*.d
+*.su
+*.cyclo

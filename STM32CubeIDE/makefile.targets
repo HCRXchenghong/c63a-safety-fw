@@ -1,0 +1,21 @@
+HEX_OUTPUT := $(BUILD_ARTIFACT_NAME).hex
+BIN_OUTPUT := $(BUILD_ARTIFACT_NAME).bin
+
+secondary-outputs: $(HEX_OUTPUT) $(BIN_OUTPUT)
+
+$(HEX_OUTPUT): $(EXECUTABLES) makefile $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objcopy -O ihex $(EXECUTABLES) "$(HEX_OUTPUT)"
+	@echo 'Finished building: $@'
+	@echo ' '
+
+$(BIN_OUTPUT): $(EXECUTABLES) makefile $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objcopy -O binary $(EXECUTABLES) "$(BIN_OUTPUT)"
+	@echo 'Finished building: $@'
+	@echo ' '
+
+clean: clean-secondary-outputs
+
+clean-secondary-outputs:
+	-$(RM) $(HEX_OUTPUT) $(BIN_OUTPUT)
+
+.PHONY: clean-secondary-outputs
